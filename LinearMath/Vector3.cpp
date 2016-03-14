@@ -74,7 +74,7 @@ namespace LinearMath {
 	Vector3 Vector3::toPolar(bool radians) {
 		float x1 = sqrtf(powf(x, 2) + powf(y, 2));
 		float y1 = atan2f(y, x);
-		return Vector3(x1, radians ? y1 : (y1 * 180) / M_PI, z);
+		return radians ? Vector3(x1, y1, z) : Vector3(x1, (y1 * 180) / M_PI, z);
 	}
 
 	// converts polar coordinates to Cartesian coordinates
@@ -124,8 +124,6 @@ namespace LinearMath {
 	// finds the angle between two vectors
 	// false to get degrees, true to get radians
 	float Vector3::angleTo(Vector3 vector, bool radians) {
-		//float temp = cosf((*this).dot(vector) / ((*this).magnitude() * vector.magnitude()));
-		//return acosf(acosf(temp)) * 180 / M_PI;;
 		Vector3 a = (*this).normalize();
 		Vector3 b = vector.normalize();
 		float dot = a.dot(b);
