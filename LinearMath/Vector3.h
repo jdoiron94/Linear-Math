@@ -41,7 +41,7 @@ namespace LinearMath {
 		float magnitude();
 		float distance(Vector3 vector);
 		float dot(Vector3 vector);
-		float angleTo(Vector3 vector);
+		float angleTo(Vector3 vector, bool radians);
 		float projectOn(Vector3 vector);
 		float triangleArea(Vector3 vector);
 		float parallelogramArea(Vector3 vector);

@@ -69,16 +69,16 @@ namespace LinearMath {
 		return (*this) - (normal.scale(-2 * (*this).dot(normal)));
 	}
 
-	// false to get degrees, true to get theta as radians
 	// converts Cartesian coordinates to polar coordinates
+	// false to get degrees, true to get theta as radians
 	Vector3 Vector3::toPolar(bool radians) {
 		float x1 = sqrtf(powf(x, 2) + powf(y, 2));
 		float y1 = atan2f(y, x);
 		return Vector3(x1, radians ? y1 : (y1 * 180) / M_PI, z);
 	}
 
-	// false to get degrees, true to get coordinates as radians
 	// converts polar coordinates to Cartesian coordinates
+	// false to get degrees, true to get coordinates as radians
 	Vector3 Vector3::toCartesian(bool radians) {
 		float x1 = x * cosf(radians ? y : (y * M_PI) / 180);
 		float y1 = x * sinf(radians ? y : (y * M_PI) / 180);
@@ -122,9 +122,14 @@ namespace LinearMath {
 	}
 
 	// finds the angle between two vectors
-	float Vector3::angleTo(Vector3 vector) {
-		float temp = cosf((*this).dot(vector) / ((*this).magnitude() * vector.magnitude()));
-		return acosf(acosf(temp)) * 180 / M_PI;;
+	// false to get degrees, true to get radians
+	float Vector3::angleTo(Vector3 vector, bool radians) {
+		//float temp = cosf((*this).dot(vector) / ((*this).magnitude() * vector.magnitude()));
+		//return acosf(acosf(temp)) * 180 / M_PI;;
+		Vector3 a = (*this).normalize();
+		Vector3 b = vector.normalize();
+		float dot = a.dot(b);
+		return radians ? acosf(dot) : acosf(dot) * 180 / M_PI;
 	}
 
 	// finds the projection of the given vector on the source vector

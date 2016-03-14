@@ -27,7 +27,7 @@ int main(void) {
 	std::cout << "Dot: " << a.dot(b) << std::endl;
 	c = a.cross(b);
 	std::cout << "Cross: " << c.getX() << ", " << c.getY() << ", " << c.getZ() << std::endl;
-	std::cout << "Angle: " << a.angleTo(b) << std::endl;
+	std::cout << "Angle: " << a.angleTo(b, true) << std::endl;
 	std::cout << "Projection: " << a.projectOn(b) << std::endl;
 	std::cout << "Collinear: " << a.collinear(b) << std::endl;
 	std::cout << "Orthogonal: " << a.orthogonal(b) << std::endl;

@@ -34,6 +34,7 @@
 *.vcxproj
 *.filters
 *.txt
+/.vs
 /x64
 /LinearMath/Debug
 /LinearMath/x64
