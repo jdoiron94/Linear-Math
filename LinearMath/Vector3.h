@@ -7,10 +7,8 @@ using std::vector;
 
 #pragma once
 
-/*
-* @author Jacob Doiron
-* @since 03/08/16
-*/
+// @author Jacob Doiron
+// @since 03/08/16
 
 namespace LinearMath {
 

@@ -3,10 +3,8 @@
 #include "Vector3.h"
 #include <math.h>
 
-/*
-* @author Jacob Doiron
-* @since 03/08/16
-*/
+// @author Jacob Doiron
+// @since 03/08/16
 
 namespace LinearMath {
 
@@ -124,9 +122,7 @@ namespace LinearMath {
 	// finds the angle between two vectors
 	// false to get degrees, true to get radians
 	float Vector3::angleTo(Vector3 vector, bool radians) {
-		Vector3 a = (*this).normalize();
-		Vector3 b = vector.normalize();
-		float dot = a.dot(b);
+		float dot = (*this).normalize().dot(vector.normalize());
 		return radians ? acosf(dot) : acosf(dot) * 180 / M_PI;
 	}
 

@@ -1,16 +1,27 @@
 #include "Vector3.h"
+#include "Matrix.h"
 #include <iostream>
 
-/*
- * @author Jacob Doiron
- * @since 03/08/16
- */
+// @author Jacob Doiron
+// @since 03/08/16
 
 using std::cout;
 using LinearMath::Vector3;
+using LinearMath::Matrix;
+
+void printMatrix(Matrix matrix) {
+	vector<vector<float>> vec = matrix.getVector();
+	for (int i = 0; i < vec.size(); i++) {
+		vector<float> row = vec[i];
+		for (int j = 0; j < row.size(); j++) {
+			std::cout << row[j];
+		}
+		std::cout << std::endl;
+	}
+}
 
 int main(void) {
-	Vector3 a = Vector3(1, 1, 1);
+	/*Vector3 a = Vector3(1, 1, 1);
 	Vector3 b = Vector3(5, 5, 5);
 	Vector3 c = a + b;
 	std::cout << "Addition: " << c.getX() << ", " << c.getY() << ", " << c.getZ() << std::endl;
@@ -58,7 +69,25 @@ int main(void) {
 	std::cout << "Polar: " << c.getX() << ", " << c.getY() << ", " << c.getZ() << std::endl;
 	b = Vector3(5, 60, 0);
 	c = b.toCartesian(true);
-	std::cout << "Cartesian: " << c.getX() << ", " << c.getY() << ", " << c.getZ() << std::endl;
+	std::cout << "Cartesian: " << c.getX() << ", " << c.getY() << ", " << c.getZ() << std::endl;*/
+	/*vector<float> vec1;
+	vec1.resize(25);
+	vec1[20] = 1;
+	Matrix mat1 = Matrix(vec1, 5, 5);
+	printMatrix(mat1);
+	vector<float> vec2;
+	vec2.resize(25);
+	std::fill(vec2.begin(), vec2.end(), 5);
+	Matrix mat2 = Matrix(vec2, 5, 5);
+	Matrix mat3 = mat1 + mat2;
+	std::cout << std::endl;
+	printMatrix(mat3);
+	Matrix mat4 = Matrix(vec1, 5, 5);
+	std::cout << "== test: " << (mat1 == mat4) << std::endl;*/
+	vector<vector<float>> vec1 = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+	Matrix mat1 = Matrix(vec1);
+	Matrix mat2 = mat1.transpose();
+	printMatrix(mat2);
 	std::cin.get();
     return 0;
 }
